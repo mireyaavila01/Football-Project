@@ -22,18 +22,28 @@ window.onload = function(){
 
 function onFootballTeamBtnClicked(){
 
+   for(let i =0; i < teams.length; i++){
     let selectedValue = teamsList.value;
+    
+    if(selectedValue == teams[i].code){
 
-    if(selectedValue != ""){
+        outputH1.innerHTML = `You selected the ${teams[i].name}  ( ${teams[i].code} ) who play in ${teams[i].plays }`;
 
-        outputH1.innerHTML = selectedValue;
     }
-    else{
-        outputH1.innerHTML = "NO TEAM IS SELECTED"
+    else if (selectedValue == ""){
+        outputH1.innerHTML = "";
     }
+    
+
+   } 
+    
 }
 
 function getTeamNames(){
+    let theOption = document.createElement("option");
+    theOption.textContent = "Select a team";
+    theOption.value = "";
+    teamsList.appendChild(theOption);
 //to make names appear on dropdown
     for(let i = 0; i < teams.length; i++){
     let theOption = document.createElement("option");
